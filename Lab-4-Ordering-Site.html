@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sam's Store</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .order-box {
+            background-color: white;
+            width: 420px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="order-box">
+        <h1 id="greeting"></h1>
+        <p id="orderInfo"></p>
+        <p id="arrivalInfo"></p>
+    </div>
+
+    <script>
+
+        // Welcome the customer
+        alert("Welcome to Sam's Store!");
+
+        // Ask the customer for their information
+        let customerName = prompt("What is your name?");
+        let itemRequested = prompt("What item would you like to order?");
+        let quantity = prompt("How many would you like? Enter a number from 1 to 99.");
+
+        // Make sure the quantity is between 1 and 99
+        while (quantity < 1 || quantity > 99 || isNaN(quantity)) {
+            quantity = prompt("Please enter a valid quantity from 1 to 99.");
+        }
+
+        // Get the current date and time
+        let today = new Date();
+        let hour = today.getHours();
+
+        // Choose a greeting based on the time
+        let greeting;
+
+        if (hour < 12) {
+            greeting = "Good Morning";
+        } else if (hour < 18) {
+            greeting = "Good Afternoon";
+        } else {
+            greeting = "Good Evening";
+        }
+
+        // Calculate the arrival date
+        let arrivalDate = new Date();
+        arrivalDate.setDate(arrivalDate.getDate() + 7);
+
+        // Show everything on the webpage
+        document.getElementById("greeting").innerHTML =
+            greeting + " " + customerName + ", Thank you for Ordering!";
+
+        document.getElementById("orderInfo").innerHTML =
+            "You ordered " + quantity + " " + itemRequested + ".";
+
+        document.getElementById("arrivalInfo").innerHTML =
+            "Expected arrival date: " + arrivalDate.toDateString();
+
+    </script>
+
+</body>
+</html>
