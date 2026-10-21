@@ -1,0 +1,16 @@
+body {
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 900px;
+}
+
+.card {
+    background-color: white;
+}
+
+#result {
+    padding: 15px;
+    border-radius: 5px;
+}
